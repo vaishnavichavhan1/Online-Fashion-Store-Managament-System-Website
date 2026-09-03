@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            background: #222;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 17px;
+        }
+
+        nav a:first-child {
+            margin-left: auto;
+        }
+
+        nav a:hover {
+            color: #ff4081;
+        }
+
+
+        /* MAIN BOX */
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 30px auto;
+        }
+
+
+        .profile-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+
+        /* PROFILE IMAGE */
+
+        .profile-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-image img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ff4081;
+        }
+
+
+        /* INPUT */
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+
+        /* IMAGE OPTIONS */
+
+        .image-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .image-options img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .image-options img.selected {
+            border: 3px solid #ff4081;
+        }
+
+
+        /* BUTTON */
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #ff4081;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e91e63;
+        }
+
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+
+        /* SAVED PROFILE */
+
+        #savedProfile {
+            display: none;
+            margin-top: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        #savedProfile h2 {
+            text-align: center;
+        }
+
+        #savedDp {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 10px auto 20px;
+        }
+
+        .saved-row {
+            margin: 10px 0;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+
+        /* MOBILE */
+
+        @media(max-width:600px) {
+
+            nav {
+                padding: 15px;
+            }
+
+            nav a {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .profile-card {
+                padding: 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <a href="Offers.html">Offers</a>
+
+    <a href="Profile.html">Profile</a>
+
+    <a href="Help.html">Help</a>
+
+</nav>
+
+
+
+<div class="container">
+
+
+    <!-- PROFILE EDIT CARD -->
+
+    <div class="profile-card">
+
+        <h1>My Profile</h1>
+
+
+        <!-- PROFILE IMAGE -->
+
+        <div class="profile-image">
+
+            <img id="dp" src="1stEmoji.jpeg">
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <label>Name</label>
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+        >
+
+
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter registered email"
+        >
+
+
+
+        <label>Mobile</label>
+
+        <input
+            type="text"
+            id="mobile"
+            placeholder="Enter mobile number"
+        >
+
+
+
+        <label>Date of Birth</label>
+
+        <input
+            type="date"
+            id="dob"
+        >
+
+
+
+        <label>Gender</label>
+
+        <select id="gender">
+
+            <option value="">Select Gender</option>
+
+            <option value="Male">Male</option>
+
+            <option value="Female">Female</option>
+
+            <option value="Other">Other</option>
+
+        </select>
+
+
+
+        <label>City</label>
+
+        <input
+            type="text"
+            id="city"
+            placeholder="Enter city"
+        >
+
+
+
+        <label>Address</label>
+
+        <textarea
+            id="address"
+            placeholder="Enter your address"
+        ></textarea>
+
+
+
+        <label>About Me</label>
+
+        <textarea
+            id="aboutMe"
+            placeholder="Tell something about yourself"
+        ></textarea>
+
+
+
+        <!-- DEFAULT IMAGES -->
+
+        <label>Choose Profile Picture</label>
+
+        <div class="image-options">
+
+            <img
+                src="d1.jpg"
+                onclick="selectImage('d1.jpg', this)"
+            >
+
+            <img
+                src="d2.jpg"
+                onclick="selectImage('d2.jpg', this)"
+            >
+
+            <img
+                src="d3.jpg"
+                onclick="selectImage('d3.jpg', this)"
+            >
+
+            <img
+                src="d4.jpg"
+                onclick="selectImage('d4.jpg', this)"
+            >
+
+            <img
+                src="d5.jpg"
+                onclick="selectImage('d5.jpg', this)"
+            >
+
+        </div>
+
+
+
+        <!-- UPLOAD IMAGE -->
+
+        <label>Upload Profile Picture</label>
+
+        <input
+            type="file"
+            accept="image/*"
+            onchange="uploadImage(this)"
+        >
+
+
+
+        <!-- SAVE -->
+
+        <button onclick="saveProfile()">
+            Save Profile
+        </button>
+
+
+        <div id="message"></div>
+
+    </div>
+
+
+
+    <!-- SAVED PROFILE -->
+
+    <div id="savedProfile">
+
+        <h2>Saved Profile</h2>
+
+
+        <img id="savedDp" src="1stEmoji.jpeg">
+
+
+        <div class="saved-row">
+            <b>Name:</b>
+            <span id="savedName"></span>
+        </div>
+
+
+        <div class="saved-row">
+            <b>Email:</b>
+            <span id="savedEmail"></span>
+        </div>
+
+
+        <div class="saved-row">
+            <b>Mobile:</b>
+            <span id="savedMobile"></span>
+        </div>
+
+
+        <div class="saved-row">
+            <b>Date of Birth:</b>
+            <span id="savedDob"></span>
+        </div>
+
+
+        <div class="saved-row">
+            <b>Gender:</b>
+            <span id="savedGender"></span>
+        </div>
+
+
+        <div class="saved-row">
+            <b>City:</b>
+            <span id="savedCity"></span>
+        </div>
+
+
+        <div class="saved-row">
+            <b>Address:</b>
+            <span id="savedAddress"></span>
+        </div>
+
+
+        <div class="saved-row">
+            <b>About Me:</b>
+            <span id="savedAbout"></span>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+let selectedImage = "1stEmoji.jpeg";
+
+
+
+/* =================================
+   SELECT DEFAULT IMAGE
+================================= */
+
+function selectImage(src, img) {
+
+    selectedImage = src;
+
+    document
+        .querySelectorAll(".image-options img")
+        .forEach(function(image) {
+
+            image.classList.remove("selected");
+
+        });
+
+    img.classList.add("selected");
+
+    document.getElementById("dp").src = src;
+
+}
+
+
+
+/* =================================
+   UPLOAD IMAGE
+================================= */
+
+function uploadImage(input) {
+
+    if (input.files && input.files[0]) {
+
+        let reader = new FileReader();
+
+        reader.onload = function(e) {
+
+            selectedImage = e.target.result;
+
+            document.getElementById("dp").src =
+                e.target.result;
+
+
+            document
+                .querySelectorAll(".image-options img")
+                .forEach(function(image) {
+
+                    image.classList.remove("selected");
+
+                });
+
+        };
+
+        reader.readAsDataURL(input.files[0]);
+
+    }
+
+}
+
+
+
+/* =================================
+   SAVE PROFILE TO MYSQL
+================================= */
+
+async function saveProfile() {
+
+    let name =
+        document.getElementById("name").value;
+
+    let email =
+        document.getElementById("email").value;
+
+    let mobile =
+        document.getElementById("mobile").value;
+
+    let dob =
+        document.getElementById("dob").value;
+
+    let gender =
+        document.getElementById("gender").value;
+
+    let city =
+        document.getElementById("city").value;
+
+    let address =
+        document.getElementById("address").value;
+
+    let aboutMe =
+        document.getElementById("aboutMe").value;
+
+
+
+    if (name === "" || email === "") {
+
+        document.getElementById("message").innerHTML =
+            "Please enter Name and Email!";
+
+        return;
+
+    }
+
+
+
+    try {
+
+        let response = await fetch(
+            "http://localhost:3000/profile",
+            {
+                method: "PUT",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    name: name,
+
+                    email: email,
+
+                    contact: mobile,
+
+                    dob: dob,
+
+                    gender: gender,
+
+                    city: city,
+
+                    address: address,
+
+                    about_me: aboutMe,
+
+                    image: selectedImage
+
+                })
+
+            }
+        );
+
+
+
+        let data = await response.json();
+
+
+
+        if (response.ok) {
+
+            document.getElementById("message").innerHTML =
+                "Profile Saved Successfully ✓";
+
+
+            showProfile({
+
+                name: name,
+
+                email: email,
+
+                mobile: mobile,
+
+                dob: dob,
+
+                gender: gender,
+
+                city: city,
+
+                address: address,
+
+                about: aboutMe,
+
+                image: selectedImage
+
+            });
+
+        }
+
+        else {
+
+            document.getElementById("message").innerHTML =
+                data.message;
+
+        }
+
+    }
+
+    catch(error) {
+
+        console.log(error);
+
+        document.getElementById("message").innerHTML =
+            "Server connection failed!";
+
+    }
+
+}
+
+
+
+/* =================================
+   SHOW SAVED PROFILE
+================================= */
+
+function showProfile(profile) {
+
+    document.getElementById("savedName").innerHTML =
+        profile.name || "";
+
+    document.getElementById("savedEmail").innerHTML =
+        profile.email || "";
+
+    document.getElementById("savedMobile").innerHTML =
+        profile.mobile || "";
+
+    document.getElementById("savedDob").innerHTML =
+        profile.dob || "";
+
+    document.getElementById("savedGender").innerHTML =
+        profile.gender || "";
+
+    document.getElementById("savedCity").innerHTML =
+        profile.city || "";
+
+    document.getElementById("savedAddress").innerHTML =
+        profile.address || "";
+
+    document.getElementById("savedAbout").innerHTML =
+        profile.about || "";
+
+
+    document.getElementById("dp").src =
+        profile.image || "1stEmoji.jpeg";
+
+    document.getElementById("savedDp").src =
+        profile.image || "1stEmoji.jpeg";
+
+
+    document.getElementById("savedProfile").style.display =
+        "block";
+
+}
+
+
+
+/* =================================
+   LOAD PROFILE FROM MYSQL
+================================= */
+
+async function loadProfile() {
+
+    let email =
+        document.getElementById("email").value;
+
+
+    if (email === "") {
+
+        return;
+
+    }
+
+
+
+    try {
+
+        let response = await fetch(
+            "http://localhost:3000/profile/" +
+            encodeURIComponent(email)
+        );
+
+
+        if (response.ok) {
+
+            let profile =
+                await response.json();
+
+
+            document.getElementById("name").value =
+                profile.name || "";
+
+            document.getElementById("mobile").value =
+                profile.contact || "";
+
+            document.getElementById("dob").value =
+                profile.dob
+                    ? profile.dob.substring(0, 10)
+                    : "";
+
+            document.getElementById("gender").value =
+                profile.gender || "";
+
+            document.getElementById("city").value =
+                profile.city || "";
+
+            document.getElementById("address").value =
+                profile.address || "";
+
+            document.getElementById("aboutMe").value =
+                profile.about_me || "";
+
+
+            selectedImage =
+                profile.image || "1stEmoji.jpeg";
+
+
+            document.getElementById("dp").src =
+                selectedImage;
+
+
+            showProfile({
+
+                name: profile.name,
+
+                email: profile.email,
+
+                mobile: profile.contact,
+
+                dob: profile.dob
+                    ? profile.dob.substring(0, 10)
+                    : "",
+
+                gender: profile.gender,
+
+                city: profile.city,
+
+                address: profile.address,
+
+                about: profile.about_me,
+
+                image: profile.image
+
+            });
+
+        }
+
+    }
+
+    catch(error) {
+
+        console.log(error);
+
+    }
+
+}
+
+
+
+/* =================================
+   WHEN EMAIL FIELD LOSES FOCUS
+================================= */
+
+document
+    .getElementById("email")
+    .addEventListener("blur", loadProfile);
+
+</script>
+
+
+</body>
+
+</html>

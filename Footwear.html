@@ -1,0 +1,306 @@
+<html>
+<head>
+    <title>Online Fashion Store Management System</title>
+    <style>
+        body{
+            margin:0;
+            background-color:#e3d6f3;
+            font-family:Poppins,sans-serif;
+        }
+        .nav{
+            display:flex;
+            align-items:center;
+            gap:40px;
+            background-color:white;
+            min-height:60px;
+            width:100%;
+            padding:0 25px;
+            box-sizing:border-box;
+        }
+        .logo img{
+            height:65px;
+            width:65px;
+            object-fit:cover;
+            border-radius:50%;
+        }
+        .headline{
+            color:#A64D79;
+            font-size:25px;
+            font-weight:bold;
+            font-family:Poppins;
+        }
+        .headline p{
+            margin:0;
+        }
+        .nav a:first-of-type{
+            margin-left:auto;
+        }
+        .nav a{
+            color:#872aa6;
+            text-decoration:none;
+            font-size:20px;
+            font-family:Poppins;
+        }
+        .nav a:hover{
+            color:#E8A0A8;
+        }
+        .images{
+            display:grid;
+            grid-template-columns:repeat(5,1fr);
+            gap:1px;
+            padding:10px;
+        }
+        .item{
+            background-color:white;
+            text-align:center;
+            overflow:hidden;
+        }
+        .item img{
+            width:100%;
+            height:300px;
+            object-fit:cover;
+            display:block;
+        }
+        .info{
+            padding:8px 5px 12px;
+        }
+        .info h3{
+            margin:3px 0;
+            color:#872aa6;
+            font-size:18px;
+        }
+        .info p{
+            margin:3px 0;
+            color:#555;
+            font-size:14px;
+        }
+        .price{
+            color:#A64D79 !important;
+            font-weight:bold;
+            font-size:16px !important;
+        }
+        .cart-btn,.buy-btn{
+            color:white;
+            border:none;
+            padding:8px 14px;
+            margin:7px 2px 0;
+            border-radius:5px;
+            font-size:14px;
+            cursor:pointer;
+        }
+        .cart-btn{
+            background-color:#872aa6;
+        }
+        .cart-btn:hover{
+            background-color:#A64D79;
+        }
+        .buy-btn{
+            background-color:#A64D79;
+        }
+        .buy-btn:hover{
+            background-color:#872aa6;
+        }
+        .add-yours{
+            margin:25px auto;
+            width:250px;
+            padding:15px;
+            text-align:center;
+            background-color:white;
+            border:2px dashed #872aa6;
+            border-radius:10px;
+        }
+        .add-yours a{
+            text-decoration:none;
+            color:#872aa6;
+            font-size:20px;
+            font-weight:bold;
+        }
+        .add-yours:hover{
+            background-color:#f5eafa;
+        }
+        @media(max-width:900px){
+            .images{
+                grid-template-columns:repeat(3,1fr);
+            }
+            .item img{
+                height:250px;
+            }
+        }
+        @media(max-width:600px){
+            .nav{
+                gap:15px;
+                padding:0 10px;
+            }
+            .logo img{
+                height:50px;
+                width:50px;
+            }
+            .headline{
+                font-size:17px;
+            }
+            .nav a{
+                font-size:15px;
+            }
+            .images{
+                grid-template-columns:repeat(2,1fr);
+                gap:2px;
+                padding:5px;
+            }
+            .item img{
+                height:220px;
+            }
+            .cart-btn,.buy-btn{
+                padding:7px 10px;
+                font-size:12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <div class="logo">
+        <img src="1stEmoji.jpeg">
+    </div>
+    <div class="headline">
+        <p>Go With The Trend !</p>
+    </div>
+    <a href="Offers.html">Offers</a>
+    <a href="Profile.html">Profile</a>
+    <a href="Help.html">Help</a>
+</div>
+
+<a href="View.html">←</a>
+
+<div class="images">
+
+    <div class="item">
+        <img src="f1.jpg">
+        <div class="info">
+            <h3>Footwear</h3>
+            <p>Traditional Footwear</p>
+            <p class="price">₹299</p>
+            <button class="cart-btn" onclick="addCart(this)">Add to Cart</button>
+            <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="f2.jpg">
+       <div class="info">
+            <h3>Footwear</h3>
+            <p>Traditional Footwear with heels</p>
+            <p class="price">₹399</p>
+            <button class="cart-btn" onclick="addCart(this)">Add to Cart</button>
+            <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="f3.jpg">
+       <div class="info">
+            <h3>Footwear</h3>
+            <p>Traditional Footwear in flats</p>
+            <p class="price">₹399</p>
+            <button class="cart-btn" onclick="addCart(this)">Add to Cart</button>
+            <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="f4.jpg">
+        <div class="info">
+             <h3>Footwear</h3>
+            <p>Traditional Footwear with heels</p>
+            <p class="price">₹699</p>
+            <button class="cart-btn" onclick="addCart(this)">Add to Cart</button>
+            <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="f5.jpg">
+        <div class="info">
+           <h3>Footwear</h3>
+            <p>Trendy flat footwear</p>
+            <p class="price">₹449</p>
+            <button class="cart-btn" onclick="addCart(this)">Add to Cart</button>
+            <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="f6.jpg">
+        <div class="info">
+             <h3>Footwear</h3>
+            <p>Anarkali flats with ghungroo</p>
+            <p class="price">₹349</p>
+            <button class="cart-btn" onclick="addCart(this)">Add to Cart</button>
+            <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="f7.jpg">
+        <div class="info">
+             <h3>Footwear</h3>
+            <p>Flat jutti with ghungroo</p>
+            <p class="price">₹599</p>
+            <button class="cart-btn" onclick="addCart(this)">Add to Cart</button>
+            <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="f8.jpg">
+        <div class="info">
+              <h3>Footwear</h3>
+            <p>Flat jutti in white</p>
+            <p class="price">₹499</p>
+            <button class="cart-btn" onclick="addCart(this)">Add to Cart</button>
+            <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="f9.jpg">
+        <div class="info">
+               <h3>Footwear</h3>
+            <p>Trendy flathalf shoes in black</p>
+            <p class="price">₹299</p>
+            <button class="cart-btn" onclick="addCart(this)">Add to Cart</button>
+            <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="f10.jpg">
+        <div class="info">
+        <h3>Footwear</h3>
+            <p>Heels in white for partywear</p>
+            <p class="price">₹699</p>
+            <button class="cart-btn" onclick="addCart(this)">Add to Cart</button>
+            <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="add-yours">
+    <a href="AddYours.html">＋ Add Yours</a>
+</div>
+
+<script>
+function addCart(button){
+    button.innerHTML="Added ✓";
+    button.style.backgroundColor="#A64D79";
+    alert("Item added to cart!");
+}
+
+function buyNow(){
+    window.location.href="BuyNow.html";
+}
+</script>
+
+</body>
+</html>

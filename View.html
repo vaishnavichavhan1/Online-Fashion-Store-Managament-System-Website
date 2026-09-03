@@ -1,0 +1,327 @@
+<html>
+<head>
+<title>Online Fashion Store Management System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{
+box-sizing:border-box;
+}
+body{
+margin:0;
+background-color:#e3d6f3;
+font-family:Poppins,sans-serif;
+}
+.nav{
+display:flex;
+align-items:center;
+gap:40px;
+background-color:white;
+min-height:60px;
+width:100%;
+padding:0 25px;
+}
+.logo img{
+height:65px;
+width:65px;
+object-fit:cover;
+border-radius:50%;
+}
+.headline{
+color:#A64D79;
+font-size:25px;
+font-weight:bold;
+font-family:Poppins,sans-serif;
+}
+.headline p{
+margin:0;
+}
+.nav a:first-of-type{
+margin-left:auto;
+}
+.nav a{
+color:#872aa6;
+text-decoration:none;
+font-size:20px;
+font-family:Poppins,sans-serif;
+}
+.nav a:hover{
+color:#E8A0A8;
+}
+.nav1{
+background-color:#872aa6;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:40px;
+padding:15px;
+}
+.nav1 a{
+color:white;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+font-family:Poppins;
+}
+.nav1 a:hover{
+color:#ffd6e7;
+}
+.products{
+width:98%;
+margin:20px auto 25px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+.box{
+background-color:white;
+border-radius:15px;
+padding:15px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+.box:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 22px rgba(93,45,120,0.25);
+}
+.box img{
+width:100%;
+height:270px;
+object-fit:cover;
+border-radius:10px;
+}
+.box h3{
+color:#872aa6;
+margin:10px 0 5px;
+font-size:21px;
+font-family:Poppins,sans-serif;
+}
+.box p{
+margin:5px;
+color:#555;
+font-family:Poppins,sans-serif;
+}
+.price{
+color:#A64D79!important;
+font-size:19px;
+font-weight:bold;
+}
+.buy{
+display:inline-block;
+background:linear-gradient(135deg,#872aa6,#A64D79);
+color:white;
+border:none;
+padding:10px 25px;
+border-radius:25px;
+font-size:14px;
+font-family:Poppins,sans-serif;
+cursor:pointer;
+margin-top:8px;
+transition:0.3s;
+}
+.buy:hover{
+transform:scale(1.05);
+background:linear-gradient(135deg,#A64D79,#E8A0A8);
+}
+.add{
+text-align:center;
+margin:15px 0 30px;
+}
+.add a{
+display:inline-block;
+background:linear-gradient(135deg,#872aa6,#A64D79);
+color:white;
+text-decoration:none;
+padding:12px 30px;
+border-radius:25px;
+font-size:17px;
+font-weight:bold;
+font-family:Poppins,sans-serif;
+transition:0.3s;
+}
+.add a:hover{
+transform:scale(1.05);
+background:linear-gradient(135deg,#A64D79,#E8A0A8);
+}
+@media(max-width:900px){
+.products{
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+.nav1{
+gap:20px;
+}
+}
+@media(max-width:600px){
+.nav{
+flex-wrap:wrap;
+gap:12px;
+padding:10px;
+justify-content:center;
+}
+.logo img{
+width:50px;
+height:50px;
+}
+.headline{
+font-size:18px;
+}
+.nav a:first-of-type{
+margin-left:0;
+}
+.nav a{
+font-size:15px;
+}
+.nav1{
+flex-wrap:wrap;
+gap:12px;
+padding:12px;
+}
+.nav1 a{
+font-size:14px;
+}
+.products{
+grid-template-columns:repeat(2,1fr);
+gap:8px;
+width:98%;
+margin-top:15px;
+}
+.box{
+padding:8px;
+border-radius:12px;
+}
+.box img{
+height:180px;
+}
+.box h3{
+font-size:16px;
+}
+.box p{
+font-size:12px;
+}
+.price{
+font-size:16px!important;
+}
+.buy{
+font-size:11px;
+padding:7px 13px;
+}
+.add a{
+font-size:14px;
+padding:10px 23px;
+}
+}
+</style>
+</head>
+<body>
+<div class="nav">
+<div class="logo">
+<img src="1stEmoji.jpeg">
+</div>
+<div class="headline">
+<p>Go With The Trend !</p>
+</div>
+<a href="Offers.html">Offers</a>
+<a href="Profile.html">Profile</a>
+<a href="Help.html">Help</a>
+</div>
+<div class="nav1">
+<a href="Clothes.html">Clothes</a>
+<a href="Makeup.html">Makeup</a>
+<a href="Grocery.html">Grocery</a>
+<a href="Footwear.html">Footwear</a>
+<a href="Acessory.html">Accessory</a>
+<a href="Stationary.html">Stationary</a>
+<a href="Watches.html">Watches</a>
+</div>
+<div class="products">
+<div class="box">
+<img src="c6.jpg">
+<h3>Stylish Dress</h3>
+<p>Women Fashion Dress</p>
+<p class="price">₹999</p>
+<button class="buy" onclick="window.location.href='Clothes.html'">Buy Now</button>
+</div>
+<div class="box">
+<img src="c2.jpg">
+<h3>Blue Jeans</h3>
+<p>Stylish Regular Fit Jeans</p>
+<p class="price">₹899</p>
+<button class="buy" onclick="window.location.href='Clothes.html'">Buy Now</button>
+</div>
+<div class="box">
+<img src="b1.jpg">
+<h3>Hand Bag</h3>
+<p>Stylish Women's Hand Bag</p>
+<p class="price">₹699</p>
+<button class="buy" onclick="window.location.href='acessory.html'">Buy Now</button>
+</div>
+<div class="box">
+<img src="w5.jpg">
+<h3>Smart Watch</h3>
+<p>Modern Digital Watch</p>
+<p class="price">₹1499</p>
+<button class="buy" onclick="window.location.href='Watches.html'">Buy Now</button>
+</div>
+<div class="box">
+<img src="g1.jpg">
+<h3>Grocery Pack</h3>
+<p>Fresh Grocery Products</p>
+<p class="price">₹499</p>
+<button class="buy" onclick="window.location.href='Grocery.html'">Buy Now</button>
+</div>
+<div class="box">
+<img src="g3.jpg">
+<h3>Daily Grocery</h3>
+<p>Quality Grocery Items</p>
+<p class="price">₹599</p>
+<button class="buy" onclick="window.location.href='Grocery.html'">Buy Now</button>
+</div>
+<div class="box">
+<img src="f8.jpg">
+<h3>Sports Shoes</h3>
+<p>Comfortable Running Shoes</p>
+<p class="price">₹1299</p>
+<button class="buy" onclick="window.location.href='Footwear.html'">Buy Now</button>
+</div>
+<div class="box">
+<img src="f3.jpg">
+<h3>Stylish Footwear</h3>
+<p>Trendy Comfortable Footwear</p>
+<p class="price">₹1099</p>
+<button class="buy" onclick="window.location.href='Footwear.html'">Buy Now</button>
+</div>
+<div class="box">
+<img src="s2.jpg">
+<h3>Stationary Set</h3>
+<p>Creative School Stationary</p>
+<p class="price">₹299</p>
+<button class="buy" onclick="window.location.href='Stationary.html'">Buy Now</button>
+</div>
+<div class="box">
+<img src="s3.jpg">
+<h3>Writing Set</h3>
+<p>Useful Writing Products</p>
+<p class="price">₹199</p>
+<button class="buy" onclick="window.location.href='Stationary.html'">Buy Now</button>
+</div>
+<div class="box">
+<img src="w2.jpg">
+<h3>Classic Watch</h3>
+<p>Elegant Stylish Watch</p>
+<p class="price">₹1199</p>
+<button class="buy" onclick="window.location.href='Watches.html'">Buy Now</button>
+</div>
+<div class="box">
+<img src="m2.jpg">
+<h3>Makeup Kit</h3>
+<p>Complete Makeup Collection</p>
+<p class="price">₹799</p>
+<button class="buy" onclick="window.location.href='Makeup.html'">Buy Now</button>
+</div>
+</div>
+<div class="add">
+<a href="AddYours.html">＋ Add Yours</a>
+</div>
+</body>
+</html>

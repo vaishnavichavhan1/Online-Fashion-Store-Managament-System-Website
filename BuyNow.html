@@ -1,0 +1,428 @@
+<html>
+<head>
+    <title>Buy Now - Online Fashion Store</title>
+
+    <style>
+        body{
+            margin:0;
+            background-color:#e3d6f3;
+            font-family:Poppins,sans-serif;
+        }
+
+        .nav{
+            display:flex;
+            align-items:center;
+            gap:40px;
+            background-color:white;
+            min-height:60px;
+            width:100%;
+            padding:0 25px;
+            box-sizing:border-box;
+        }
+
+        .logo img{
+            height:65px;
+            width:65px;
+            object-fit:cover;
+            border-radius:50%;
+        }
+
+        .headline{
+            color:#A64D79;
+            font-size:25px;
+            font-weight:bold;
+        }
+
+        .headline p{
+            margin:0;
+        }
+
+        .nav a:first-of-type{
+            margin-left:auto;
+        }
+
+        .nav a{
+            color:#872aa6;
+            text-decoration:none;
+            font-size:20px;
+        }
+
+        .nav a:hover{
+            color:#E8A0A8;
+        }
+
+        .back-btn{
+            background-color:#872aa6;
+            color:white;
+            border:none;
+            width:40px;
+            height:40px;
+            border-radius:50%;
+            font-size:24px;
+            cursor:pointer;
+        }
+
+        .back-btn:hover{
+            background-color:#A64D79;
+        }
+
+        .box{
+            width:90%;
+            max-width:600px;
+            margin:30px auto;
+            background-color:white;
+            padding:25px;
+            border-radius:12px;
+            box-sizing:border-box;
+        }
+
+        .box h2{
+            text-align:center;
+            color:#872aa6;
+            margin-top:0;
+        }
+
+        label{
+            display:block;
+            color:#555;
+            margin-top:12px;
+            font-weight:bold;
+        }
+
+        input,select,textarea{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            box-sizing:border-box;
+            font-family:Poppins,sans-serif;
+        }
+
+        textarea{
+            height:80px;
+            resize:none;
+        }
+
+        .qr{
+            display:none;
+            text-align:center;
+            background-color:#f5eafa;
+            padding:15px;
+            margin-top:15px;
+            border-radius:8px;
+        }
+
+        .qr img{
+            width:180px;
+            height:180px;
+            object-fit:contain;
+        }
+
+        .qr p{
+            color:#872aa6;
+            font-weight:bold;
+        }
+
+        .order-btn{
+            width:100%;
+            padding:12px;
+            margin-top:20px;
+            background-color:#872aa6;
+            color:white;
+            border:none;
+            border-radius:6px;
+            font-size:17px;
+            cursor:pointer;
+        }
+
+        .order-btn:hover{
+            background-color:#A64D79;
+        }
+
+        #message{
+            text-align:center;
+            color:#872aa6;
+            font-weight:bold;
+            margin-top:15px;
+        }
+
+        @media(max-width:600px){
+
+            .nav{
+                gap:15px;
+                padding:0 10px;
+            }
+
+            .logo img{
+                height:50px;
+                width:50px;
+            }
+
+            .headline{
+                font-size:17px;
+            }
+
+            .nav a{
+                font-size:15px;
+            }
+
+            .box{
+                margin:20px auto;
+                padding:18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="nav">
+
+    <button class="back-btn" onclick="history.back()">←</button>
+
+    <div class="logo">
+        <img src="1stEmoji.jpeg">
+    </div>
+
+    <div class="headline">
+        <p>Go With The Trend !</p>
+    </div>
+
+    <a href="Offers.html">Offers</a>
+    <a href="About.html">About</a>
+    <a href="Help.html">Help</a>
+
+</div>
+
+
+<div class="box">
+
+    <h2>Place Your Order</h2>
+
+
+    <label>Full Name</label>
+    <input type="text" id="full_name"
+           placeholder="Enter your full name">
+
+
+    <label>Mobile Number</label>
+    <input type="tel" id="mobile"
+           placeholder="Enter mobile number">
+
+
+    <label>Email</label>
+    <input type="email" id="email"
+           placeholder="Enter email">
+
+
+    <label>Address</label>
+    <textarea id="address"
+              placeholder="Enter your complete address"></textarea>
+
+
+    <label>City</label>
+    <input type="text" id="city"
+           placeholder="Enter city">
+
+
+    <label>State</label>
+    <input type="text" id="state"
+           placeholder="Enter state">
+
+
+    <label>PIN Code</label>
+    <input type="number" id="pin_code"
+           placeholder="Enter PIN code">
+
+
+    <label>Quantity</label>
+
+    <select id="quantity">
+
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+
+    </select>
+
+
+    <label>Payment Method</label>
+
+    <select id="payment" onchange="showQR()">
+
+        <option value="">Select Payment Method</option>
+
+        <option value="cod">
+            Cash on Delivery
+        </option>
+
+        <option value="upi">
+            UPI
+        </option>
+
+        <option value="debit">
+            Debit Card
+        </option>
+
+        <option value="credit">
+            Credit Card
+        </option>
+
+    </select>
+
+
+    <div class="qr" id="qr">
+
+        <p>Scan QR Code to Pay</p>
+
+        <img src="qr.jpg">
+
+        <p>UPI Payment</p>
+
+    </div>
+
+
+    <button class="order-btn" onclick="placeOrder()">
+        Place Order
+    </button>
+
+
+    <p id="message"></p>
+
+</div>
+
+
+<script>
+
+function showQR(){
+
+    let payment =
+        document.getElementById("payment").value;
+
+    let qr =
+        document.getElementById("qr");
+
+
+    if(payment == "upi"){
+
+        qr.style.display = "block";
+
+    }
+    else{
+
+        qr.style.display = "none";
+
+    }
+
+}
+
+
+async function placeOrder(){
+
+    let full_name =
+        document.getElementById("full_name").value;
+
+    let mobile =
+        document.getElementById("mobile").value;
+
+    let email =
+        document.getElementById("email").value;
+
+    let address =
+        document.getElementById("address").value;
+
+    let city =
+        document.getElementById("city").value;
+
+    let state =
+        document.getElementById("state").value;
+
+    let pin_code =
+        document.getElementById("pin_code").value;
+
+    let quantity =
+        document.getElementById("quantity").value;
+
+    let payment_method =
+        document.getElementById("payment").value;
+
+
+    if(!full_name || !mobile || !address || !payment_method){
+
+        document.getElementById("message").innerHTML =
+            "Please fill all required details!";
+
+        return;
+
+    }
+
+
+    try{
+
+        let response = await fetch(
+            "http://localhost:3000/order",
+            {
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify({
+
+                    full_name:full_name,
+                    mobile:mobile,
+                    email:email,
+                    address:address,
+                    city:city,
+                    state:state,
+                    pin_code:pin_code,
+                    quantity:quantity,
+                    payment_method:payment_method
+
+                })
+
+            }
+        );
+
+
+        let data = await response.json();
+
+
+        if(response.ok){
+
+            document.getElementById("message").innerHTML =
+                data.message +
+                " Order ID: " +
+                data.order_id;
+
+        }
+
+        else{
+
+            document.getElementById("message").innerHTML =
+                data.message;
+
+        }
+
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        document.getElementById("message").innerHTML =
+            "Server connection failed!";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

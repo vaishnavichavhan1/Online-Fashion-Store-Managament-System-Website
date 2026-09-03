@@ -1,0 +1,191 @@
+<html>
+<head>
+    <title>Online Fashion Store Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            background-color: #e3d6f3;
+            font-family: Poppins, sans-serif;
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background-color: white;
+            min-height: 60px;7
+            padding: 0 20px;
+        }
+        .logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+        }
+        .headline {
+            color: #A64D79;
+            font-size: 22px;
+            font-weight: bold;
+            font-family: Poppins;
+        }
+        .headline p {
+            margin: 0;
+        }
+        .nav a:first-of-type {
+            margin-left: auto;
+        }
+        .nav a {
+            color: #872aa6;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: Poppins;
+        }
+        .nav a:hover {
+            color: #E8A0A8;
+        }
+        .box1 {
+            background-color: white;
+            width: 400px;
+            max-width: 90%;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-sizing: border-box;
+        }
+        label {
+            color: #872aa6;
+            font-size: 17px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 7px 0 15px;
+            box-sizing: border-box;
+            border: 1px solid #A64D79;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #872aa6;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #A64D79;
+        }
+        #message {
+            color: #872aa6;
+            font-weight: bold;
+        }
+        .links {
+            text-align: center;
+            line-height: 28px;
+        }
+        .links a {
+            color: #872aa6;
+        }
+        @media (max-width: 600px) {
+            .nav {
+                flex-wrap: wrap;
+                gap: 12px;
+                padding: 10px 15px;
+                justify-content: center;
+            }
+            .logo {
+                margin-right: 5px;
+            }
+            .headline {
+                font-size: 18px;
+            }
+            .nav a:first-of-type {
+                margin-left: 0;
+            }
+            .nav a {
+                font-size: 16px;
+            }
+            .box1 {
+                margin: 25px auto;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <img src="1stEmoji.jpeg">
+        </div>
+        <div class="headline">
+            <p>Go With The Trend!</p>
+        </div>
+        <a href="Offers.html">Offers</a>
+        <a href="Profile.html">Profile</a>
+        <a href="Help.html">Help</a>
+    </div>
+    <div class="box1">
+        <form>
+            <label>Name:</label>
+            <input type="text" id="name" placeholder="Enter your Name" required>
+            <label>Email:</label>
+            <input type="email" id="email" placeholder="Enter your Email" required>
+            <label>Contact:</label>
+            <input type="number" id="contact" placeholder="Enter your Contact">
+            <button type="button" onclick="welcome()">
+                Submit
+            </button>
+            <p id="message"></p>
+        </form>
+        <div class="links">
+            <a href="signin.html">Already have an account</a><br>
+            <a href="View.html">View</a>
+        </div>
+    </div>
+    <script>
+        async function welcome() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let contact = document.getElementById("contact").value;
+
+    if (name === "" || email === "") {
+        document.getElementById("message").innerHTML =
+            "Please enter Name and Email!";
+        return;
+    }
+
+    try {
+
+        let response = await fetch("http://localhost:3000/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                contact: contact
+            })
+        });
+
+        let data = await response.json();
+
+        if (response.ok) {
+            document.getElementById("message").innerHTML =
+                "Welcome to our Store " + name + "!";
+        } else {
+            document.getElementById("message").innerHTML =
+                data.message;
+        }
+
+    } catch (error) {
+
+        console.log(error);
+
+        document.getElementById("message").innerHTML =
+            "Server connection failed!";
+    }
+}
+    </script>
+</body>
+</html>
